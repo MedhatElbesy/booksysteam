@@ -36,8 +36,11 @@ class DocumentController extends Controller
 
     public function show(Document $document)
     {
-        return view('documents.show', compact('document'));
+        $pdfUrl = $document->getFirstMediaUrl('documents');
+        return view('documents.show', compact('pdfUrl'));
     }
+
+
 
     public function edit(Document $document)
     {
